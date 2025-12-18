@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliano Rafael | Front-end Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00d4ff;
+            --whatsapp-color: #25d366;
+            --linkedin-color: #0077b5;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-light: #f8fafc;
+            --text-gray: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
+
+        /* Cabeçalho Profissional */
+        header { 
+            padding: 5rem 2rem; 
+            text-align: center; 
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
+            border-bottom: 1px solid #334155;
+        }
+
+        .container { max-width: 1100px; margin: auto; padding: 0 2rem; }
+
+        h1 { font-size: 3.5rem; margin-bottom: 0.5rem; color: var(--text-light); letter-spacing: -1px; }
+
+        .hero-subtitle { 
+            max-width: 800px; 
+            margin: 0 auto 2.5rem auto; 
+            color: var(--text-gray); 
+            font-size: 1.25rem; 
+        }
+
+        .hero-subtitle strong { color: var(--primary-color); font-weight: 600; }
+
+        /* Central de Contatos */
+        .contact-central {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-contact {
+            padding: 12px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .whatsapp { background-color: var(--whatsapp-color); color: white; }
+        .linkedin { background-color: var(--linkedin-color); color: white; }
+        .email { background-color: white; color: #0f172a; }
+        .github-main { background-color: transparent; color: white; border: 1px solid white; }
+
+        .btn-contact:hover { transform: translateY(-3px); filter: brightness(1.1); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4); }
+
+        /* Seção de Projetos */
+        .projects-section { padding: 5rem 0; }
+        
+        .section-title { text-align: center; margin-bottom: 4rem; font-size: 2.2rem; position: relative; }
+        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--primary-color); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* Card do Projeto com Imagem */
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 15px;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .project-card:hover { border-color: var(--primary-color); transform: translateY(-5px); }
+
+        .card-image-link { width: 100%; height: 200px; overflow: hidden; display: block; }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image { transform: scale(1.1); }
+
+        .card-content { padding: 1.8rem; display: flex; flex-direction: column; flex-grow: 1; }
+
+        .project-card h3 { color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.5rem; }
+
+        .project-card p { color: var(--text-gray); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
+
+        .tags { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+
+        .tag {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        /* Botões do Card */
+        .btn-project-group { display: flex; gap: 10px; }
+
+        .btn-p {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .btn-view { background-color: var(--primary-color); color: #0f172a; }
+        .btn-code { border: 1px solid #475569; color: var(--text-light); }
+        .btn-p:hover { opacity: 0.8; }
+
+        footer { text-align: center; padding: 4rem; color: var(--text-gray); border-top: 1px solid #334155; }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .contact-central { flex-direction: column; }
+            .btn-contact { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Aliano Rafael</h1>
+        <p class="hero-subtitle">
+            <strong>Front-end Web Developer</strong><br>
+            Especialista em criar interfaces modernas, rápidas e focadas na experiência do usuário. Transformando sua visão em domínio digital de alto impacto.
+        </p>
+        
+        <div class="contact-central">
+            <a href="https://wa.me/5511964545706" target="_blank" class="btn-contact whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://www.linkedin.com/in/SEU-PERFIL" target="_blank" class="btn-contact linkedin">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="mailto:alianorafaeldasilva@gmail.com" class="btn-contact email">
+                <i class="fas fa-envelope"></i> E-mail
+            </a>
+            <a href="https://github.com/alianorafael-ti" target="_blank" class="btn-contact github-main">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="container projects-section">
+    <h2 class="section-title">Projetos em Destaque</h2>
+    
+    <div class="projects-grid">
+        
+        <div class="project-card">
+           
+                <img src="marketing.png" alt="ARS Marketing" class="project-image">
+            </a>
+            <div class="card-content">
+                <h3>ARS-Marketing</h3>
+                <pPlataforma institucional multi-páginas desenvolvida como projeto de conclusão de curso (TCC). O site integra uma arquitetura completa de conversão, incluindo funil de vendas com formulários de orçamento personalizados, seções de Missão/Visão/Valores e uma vitrine de serviços focada em SEO e Social Media Marketing.</p>
+                <div class="tags">
+                    <span class="tag">Marketing B2B</span>
+                    <span class="tag">HTML5/CSS3</span>
+                    <span class="tag">UI/UX</span>
+                </div>
+                <div class="btn-project-group">
+                    <a href=" https://alianorafael-ti.github.io/ARS-Markenting-TCC/" target="_blank" class="btn-p btn-view">Visualizar Site</a>
+                    <a href="https://github.com/alianorafael-ti/ARS-Markenting-TCC.git" target="_blank" class="btn-p btn-code">Código</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            
+                <img src="jesus-web.png" alt="Jesus na Web" class="project-image">
+            </a>
+            <div class="card-content">
+                <h3>Jesus-na-Web</h3>
+                <p>Portal institucional desenvolvido com foco total em UX (Experiência do Usuário) e acessibilidade. O projeto prioriza a legibilidade de textos e a organização intuitiva de conteúdos para comunidades, garantindo que usuários de todas as idades naveguem com facilidade em qualquer dispositivo.</p>
+                <div class="tags">
+                    <span class="tag">Institucional</span>
+                    <span class="tag">Acessibilidade</span>
+                    <span class="tag">Responsive</span>
+                </div>
+                <div class="btn-project-group">
+                    <a href=" https://alianorafael-ti.github.io/Jesus-na-Web/" target="_blank" class="btn-p btn-view">Visualizar Site</a>
+                    <a href="https://github.com/alianorafael-ti/Jesus-na-Web.git" target="_blank" class="btn-p btn-code">Código</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+           
+                <img src="pizzaria.png" alt="Pizzaria Sapori del Mondo" class="project-image">
+            </a>
+            <div class="card-content">
+                <h3>Sapori del Mondo</h3>
+                <p>Aplicação web completa para o setor gastronômico com sistema de pedidos automatizado. Apresenta um cardápio dinâmico e uma ferramenta de checkout inteligente em JavaScript que calcula subtotais e taxas de entrega em tempo real, enviando o pedido formatado diretamente para o WhatsApp do estabelecimento.</p>
+                <div class="tags">
+                    <span class="tag">Gastronomia</span>
+                    <span class="tag">Visual Design</span>
+                    <span class="tag">UX</span>
+                </div>
+                <div class="btn-project-group">
+                    <a href="https://alianorafael-ti.github.io/pizzaria-sapori-del-mondo" target="_blank" class="btn-p btn-view">Visualizar Site</a>
+                    <a href="https://github.com/alianorafael-ti/pizzaria-sapori-del-mondo" target="_blank" class="btn-p btn-code">Código</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            
+                <img src="minimalista.png" alt="Site Minimalista" class="project-image">
+            </a>
+            <div class="card-content">
+                <h3>Site Minimalista</h3>
+                <p>Landing Page minimalista desenvolvida para o nicho de saúde e bem-estar. O projeto aplica conceitos avançados de tipografia e respiro visual (white space) para transmitir credibilidade e calma. Uma estrutura Single Page Application (SPA) focada em conversão direta para agendamentos via CTA estratégica.</p>
+                <div class="tags">
+                    <span class="tag">Minimalismo</span>
+                    <span class="tag">Performance</span>
+                    <span class="tag">Clean Code</span>
+                </div>
+                <div class="btn-project-group">
+                    <a href="https://alianorafael-ti.github.io/site-minimalista" target="_blank" class="btn-p btn-view">Visualizar Site</a>
+                    <a href="https://github.com/alianorafael-ti/site-minimalista" target="_blank" class="btn-p btn-code">Código</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Aliano Rafael • Desenvolvedor Front-end</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: var(--primary-color);">Focado em criar soluções que geram resultados.</p>
+    </div>
+</footer>
+
+</body>
+</html>
